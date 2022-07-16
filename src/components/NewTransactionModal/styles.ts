@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {darken} from "polished";
+import {darken, transparentize} from "polished";
+// Polished, biblioteca de estilos específicos
 
 export const Container = styled.form`
 	//Style do container de dentro do modal
@@ -32,7 +33,7 @@ export const Container = styled.form`
 
 	button[type="submit"] {
 		width: 100%;
-		padding: 0 1.5rem;
+		padding: 1.2rem 1.5rem;
 		background: var(--green);
 		color: #fff;
 		border-radius: 0.25rem;
@@ -53,34 +54,54 @@ export const TransactionTypeContainer = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 0.5rem;
+`;
 
-	button {
-		height: 4rem;
-		border: 1px solid #d7d7d7;
-		border-radius: 0.25rem;
+type RadioBoxProps = {
+	/* Tipagem responsável pelas estilização específicas 
+	do button, através de props no componet do styled */
+	isActive: boolean;
+	activeColor: "green" | "red";
+};
 
-		background: transparent;
+const colors = {
+	/* Duas opões que cores que a propriedade, do component   
+		do Styled pode receber 
+	*/
+	green: "#33CC95",
+	red: "#E52E4D",
+};
 
-		display: flex;
-		align-items: center;
-		justify-content: center;
+export const RadioBox = styled.button<RadioBoxProps>`
+	height: 4rem;
+	border: 1px solid #d7d7d7;
+	border-radius: 0.25rem;
 
-		transition: border-color 0.2s;
+	background: ${props =>
+		props.isActive
+			? transparentize(0.9, colors[props.activeColor])
+			: "transparent"};
+	/* recebemos as props criadas no component do styled, e criada uma condição: se a props estiver ativa, irá aplicar 
+	color green ou red, e lá será aplicado apenas para um dos buttons cada style */
 
-		&:hover {
-			border-color: ${darken(0.1, "#d7d7d7")};
-		}
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-		img {
-			width: 20px;
-			height: 20px;
-		}
+	transition: border-color 0.2s;
 
-		span {
-			display: inline-block;
-			margin-left: 1rem;
-			font-size: 1rem;
-			color: var(--text-title);
-		}
+	&:hover {
+		border-color: ${darken(0.1, "#d7d7d7")};
+	}
+
+	img {
+		width: 20px;
+		height: 20px;
+	}
+
+	span {
+		display: inline-block;
+		margin-left: 1rem;
+		font-size: 1rem;
+		color: var(--text-title);
 	}
 `;
