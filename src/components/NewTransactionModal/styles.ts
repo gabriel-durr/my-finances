@@ -78,7 +78,7 @@ export const RadioBox = styled.button<RadioBoxProps>`
 
 	background: ${props =>
 		props.isActive
-			? transparentize(0.9, colors[props.activeColor])
+			? transparentize(0.8, colors[props.activeColor])
 			: "transparent"};
 	/* recebemos as props criadas no component do styled, e criada uma condição: se a props estiver ativa, irá aplicar 
 	color green ou red com transparentize da lib polished, e lá será aplicado apenas para um dos buttons cada style */
