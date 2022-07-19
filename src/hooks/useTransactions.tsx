@@ -1,5 +1,5 @@
-import {createContext, useEffect, useState, ReactNode} from "react";
-import {api} from "./services/api";
+import {createContext, useEffect, useState, ReactNode, useContext} from "react";
+import {api} from "../services/api";
 // Context que compartilha os gerenciamento das transações entre os components
 
 type Transaction = {
@@ -27,7 +27,7 @@ type TrasactionsProviderProps = {
 };
 //Tipagem para o component do context, que irá ficar por volta dos components filhos que queremos compartilhar os dados, e recebe como parâmetro esses filhos, e para tipar esse tipo de dado utilizamos como valor o ReactNode que importamos do react, que serve para dizer que a tipagem recebe tudo que é permitido no JSX do react.
 
-export const TransactionsContext = createContext<TransactionsContextData>(
+const TransactionsContext = createContext<TransactionsContextData>(
 	{} as TransactionsContextData
 	// para o valor inicial do context  que é um objeto que irá conter, os mesmos tipos (Devemos forçar com "as" a tipagem do)
 );
@@ -64,4 +64,11 @@ export function TransactionsProvider({children}: TrasactionsProviderProps) {
 			{children}
 		</TransactionsContext.Provider>
 	);
+}
+
+export function useTransactions() {
+	// Hook para o nosso context, permitindo utilizar o context apenas importando o hook nos components
+	const context = useContext(TransactionsContext);
+
+	return context;
 }
