@@ -1,10 +1,12 @@
+import {FormEvent, useContext, useState} from "react";
 import Modal from "react-modal";
+import {TransactionsContext} from "../../TransactionsContext";
+
 import incomeImg from "../../assets/income.svg";
-import outcomeImg from "../../assets/outcome.svg";
 import closeImg from "../../assets/close.svg";
 import {Container, TransactionTypeContainer, RadioBox} from "./styles";
-import {FormEvent, useState} from "react";
-import {api} from "../../services/api";
+
+import outcomeImg from "../../assets/outcome.svg";
 //tipagem que vem do react, que mostra todos os dados que tem dentro do evento form
 
 interface NewTransactionModalProps {
@@ -16,16 +18,18 @@ export function NewTransactionModal({
 	isOpen,
 	onRequestClose,
 }: NewTransactionModalProps) {
+	const {createTransaction} = useContext(TransactionsContext);
+
 	const [title, setTitle] = useState("");
 	// Estado responsável pelo title do input do modal
-	const [value, setValue] = useState(0);
+	const [amount, setAmout] = useState(0);
 	// Estado responsável pelo valor do input do modal
 	const [category, setCategory] = useState("");
 	// Estado responsável pela categoria do modal do input do modal
 	const [type, setType] = useState("deposit");
 	// Estado responsável pela type "entrada" ou "saída"  do input do modal
 
-	function handleCreateNewTransaction(event: FormEvent) {
+	async function handleCreateNewTransaction(event: FormEvent) {
 		/* função que sera executada através do event de submit ou
 		enter no form */
 
@@ -33,16 +37,19 @@ export function NewTransactionModal({
 		/* pega o evento do submit e previne o funcionamento padrão que é
 		faz reload na página ao dar submit */
 
-		const data = {
-			// Criamos variável que Pega o valor de todos estados que foram digitados no input  e cria um objeto.
+		await createTransaction({
 			title,
-			value,
+			amount,
 			category,
 			type,
-		};
+		});
 
-		api.post("/transactions", data);
-		// Enviamos pelo método post, o objeto para rota da api
+		setTitle("");
+		setAmout(0);
+		setCategory("");
+		setType("deposit");
+		onRequestClose();
+		/* No final da criação de uma transaction, resetamos os valors dos estados do input, e fechamos o modal, para quando o modal ser aberto novamente os compatos não continuarem preenchidos. */
 	}
 
 	return (
@@ -74,9 +81,9 @@ export function NewTransactionModal({
 				<input
 					type="number"
 					placeholder="Valor"
-					value={value}
+					value={amount}
 					// Value com o valor númerico do estado, pra sempre que for alterado ser passado para o input
-					onChange={event => setValue(Number(event.target.value))}
+					onChange={event => setAmout(Number(event.target.value))}
 					//Evento que pega o valor númerico digitado no input, converte para number, pois ele retorna um text e passa para função do estado
 				/>
 
