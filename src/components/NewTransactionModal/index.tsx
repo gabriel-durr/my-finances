@@ -7,7 +7,6 @@ import {Container, TransactionTypeContainer, RadioBox} from "./styles";
 
 import outcomeImg from "../../assets/outcome.svg";
 import {useTransactions} from "../../hooks/useTransactions";
-//tipagem que vem do react, que mostra todos os dados que tem dentro do evento form
 
 interface NewTransactionModalProps {
 	isOpen: boolean;
@@ -81,7 +80,7 @@ export function NewTransactionModal({
 				<input
 					type="number"
 					placeholder="Valor"
-					value={amount}
+					value={amount === 0 ? "" : amount}
 					// Value com o valor númerico do estado, pra sempre que for alterado ser passado para o input
 					onChange={event => setAmout(Number(event.target.value))}
 					//Evento que pega o valor númerico digitado no input, converte para number, pois ele retorna um text e passa para função do estado
