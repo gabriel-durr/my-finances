@@ -23,7 +23,7 @@ export const Container = styled.form`
 		font-size: 1rem;
 
 		&::placeholder {
-			color: var(--text-body);
+			color: var(--text-title);
 		}
 
 		& + input {

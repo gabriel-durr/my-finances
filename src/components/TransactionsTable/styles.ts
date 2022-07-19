@@ -13,13 +13,14 @@ export const Container = styled.div`
 			padding: 1rem 2rem;
 			text-align: left;
 			line-height: 1.5rem;
+			font-size: 1.3rem;
 		}
 
 		td {
-			padding: 1rem 2rem;
+			padding: 1.3rem 2.2rem;
 			border: 0;
 			background: var(--shape);
-			color: var(--text-body);
+			color: var(--text-title);
 			border-radius: 0.25rem;
 
 			&:first-child {
