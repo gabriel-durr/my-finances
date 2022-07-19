@@ -2,11 +2,10 @@
 <h1 align="center" class="line-1 anim-typewriter"> My Finances</h1> 
 
 <div align="center">
- <img align="center" src="https://i.imgur.com/H4Y0zDx.png" width="48%" /> 
-  <img align="center" src="https://i.imgur.com/sTnxrsI.gifo" width="50%" /> 
- 
- 
-            
+  <img align="center" src="https://i.imgur.com/H4Y0zDx.png" width="82%" /> 
+   <br/> <br/>
+  <img align="center" src="https://i.imgur.com/pYtbk7d.pngg" width="40%" /> 
+  <img align="center" src="https://i.imgur.com/sTnxrsI.gifo" width="41.4%" />
 </div>
 
 
@@ -25,20 +24,24 @@
 <h2 id="challenge"  align="center">⚡ The challenge </h2> 
 
 <div align="center">
-        <p> 
-Utilizado MirageJS para criar um API mock, para criar um aplicação simular funcionamento da aplicação com uma APi real, não apenas com dados estáticos.  </p>
+  <p> 
+Finance application, which counts the total inflow and outflow of money by entering the information through a modal. Used MirageJS to create a Mock API, to simulate a real project and not just have static data. Hook creation for context, styling with styled components...
+  </p>
 </div>
 
-<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 > <h3> Links : </h3>
 
 
-ReactJS A JavaScript library for creating interfaces ... [Learn More](https://pt-br.reactjs.org/ "Clique para ser redirecionado!")
+<b>ReactJS</b> A JavaScript library for creating interfaces ... [Learn More](https://pt-br.reactjs.org/ "Clique para ser redirecionado!")
 
- MirageJS is an API mocking library that lets you build, test and share ... [Learn More](https://miragejs.com/api/classes/association/ "Clique para ser redirecionado!")
+ <b>MirageJS</b> is an API mocking library that lets you build, test and share ... [Learn More](https://miragejs.com/api/classes/association/ "Clique para ser redirecionado!")
 
-Axios: Axios is a simple promise-based HTTP client for the browser and node.js. Axios provides a library... [Learn More](https://axios-http.com/ptbr/ "Clique para ser redirecionado!")
+<b>Axios</b> Axios is a simple promise-based HTTP client for the browser and node.js. Axios provides a library... [Learn More](https://axios-http.com/ptbr/ "Clique para ser redirecionado!")
 
 <br/><br/>
 
@@ -55,14 +58,10 @@ Axios: Axios is a simple promise-based HTTP client for the browser and node.js. 
     <p align="left"><code><b>ReactJS</b></code></p> 
 </div>
 
-
 <div id="typescript">
         <img align="left" class="icon" src="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/96/external-typescript-an-open-source-programming-language-developed-and-maintained-by-microsoft-logo-shadow-tal-revivo.png" width="28px"/>
         <p align="left"><code><b>TypeScript</b></code></p>
 </div>
-
-
-<br>
 
 <div id="styled-components">
         <img  align="left" class="icon" src="https://miro.medium.com/max/480/1*Iohnw2aOQ5EBghVoqKA7VA.png" width="30px"/>
