@@ -98,13 +98,14 @@ Finance application, which counts the total inflow and outflow of money by enter
 2. <b>Install dependencies</b> 
 
 ```bash
-  $ yarn add 
+  $ yarn 
 ```
 
 
 3. <b>Start the application</b> 
 
 ```bash
+  $ yarn server
   $ yarn start
 ```
 
