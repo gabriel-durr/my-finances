@@ -106,7 +106,7 @@ Finance application, which counts the total inflow and outflow of money by enter
 
 ```bash
   $ yarn server
-  $ yarn start
+  $ yarn dev
 ```
 
 <div/>
